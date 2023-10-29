@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.dispatch import receiver    
+from django.dispatch import receiver
 from django.db.models.signals import post_save
 
 
@@ -17,7 +17,7 @@ class Products(models.Model):
     p_image = models.ImageField(upload_to="static/images/")
     p_price = models.DecimalField(max_digits=7, decimal_places=2)
 
-    
+
 class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
@@ -30,18 +30,21 @@ class Orders(models.Model):
     lname = models.CharField(max_length=100, default="Doe")
 
 
-
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
+
 
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
 
+
 class Wallet(models.Model):
     user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
-    wallet = models.DecimalField(max_digits=7, decimal_places=2, default=10000.00)
+    wallet = models.DecimalField(
+        max_digits=7, decimal_places=2, default=10000.00)
+
 
 class Rating(models.Model):
     order = models.ForeignKey(Orders, on_delete=models.CASCADE)
