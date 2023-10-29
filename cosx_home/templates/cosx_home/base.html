@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <style>
+            body{
+                background-color:#f572f5;
+                font-family: "Poppins", sans-serif;
+                font-weight: 300;
+               }
+
+               .custom-border {
+        border: 2px solid #140101; /* Sets the border color to black (#000000) */
+      }
+
+
+               .error{
+                width: 100%;
+                background-color: rgba(255,0,0,50);
+                border: 0;
+                padding: 10px;
+               }
+
+               .search{
+               position: relative;
+               box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+
+               }
+
+               .card-anim:hover{
+                box-shadow: 0px 0px 0px 2px rgba(0,0,0,50);
+               }
+
+
+               .search input{
+
+                height: 60px;
+                text-indent: 25px;
+                border: 2px solid #d6d4d4;
+
+
+               }
+
+
+               .search input:focus{
+
+                box-shadow: none;
+                border: 2px solid black;
+
+
+               }
+
+               .search .fa-search{
+
+                position: absolute;
+                top: 20px;
+                left: 16px;
+
+               }
+
+               .search button{
+
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                height: 50px;
+                width: 110px;
+                background: rgb(216, 139, 232);
+
+               }
+                {% block style %}
+                {% endblock style %}
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body style="background: #9d9b9d; margin: 0; font-family: Roboto">
+    <div class="px-5 bg-dark w-100 mb-0 sticky-top">
+      <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom"
+      >
+        <a href="/" class="text-decoration-none text-light fw-bold lead w-25">
+          Devil Collectibles
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li>
+            <a
+              href="{% url 'cosx-home' %}"
+              class="text-light nav-link px-2 link-primary"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'cosx-products' %}"
+              class="text-light nav-link px-2 link-primary"
+              >Products</a
+            >
+          </li>
+          {% if user.is_authenticated %}
+          <li>
+            <a
+              href="{% url 'cart' %}"
+              class="text-light nav-link px-2 link-primary"
+              >Cart</a
+            >
+          </li>
+          <li>
+            <a
+              href="{% url 'wallet' %}"
+              class="text-light nav-link px-2 link-primary"
+              >Wallet</a
+            >
+          </li>
+
+          <li>
+            <a
+              href="{% url 'orders' %}"
+              class="text-light nav-link px-2 link-primary"
+              >Orders</a
+            >
+          </li>
+
+          {% endif %}
+        </ul>
+
+        <div class="w-25 text-end">
+          {% if user.is_authenticated %}
+
+          <a href="{% url 'cosx-home' %}" type="button" class="btn btn-primary"
+            >{{user.username}}</a
+          >
+          <a href="{% url 'logout' %}" type="button" class="btn text-danger"
+            ><b>Logout</b></a
+          >
+          {% else %}
+          <a
+            href="{% url 'login' %}"
+            type="button"
+            class="btn btn-outline-primary me-2"
+            >Login</a
+          >
+          <a href="{% url 'register' %}" type="button" class="btn btn-primary"
+            >Sign-up</a
+          >
+          {% endif %}
+        </div>
+      </header>
+    </div>
+
+    <div
+      style="
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      "
+    >
+      <div
+        style="
+          border-radius: 10px;
+          width: 100%;
+          background: #b0f0f7;
+          padding: 0px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-around;
+        "
+      >
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+{% extends 'cosx_home/base.html' %}
+
+{% block content %}
+<main class="mt-0 pt-0">
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h2 class="my-5 h2">Checkout form</h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+
+          <!--Card-->
+          <div class="card">
+
+            <!--Card content-->
+            <form class="card-body" method="POST">
+                {% csrf_token %}
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-2">
+
+                  <!--firstName-->
+                  <div class="md-form ">
+                    <input type="text" name="fname" id="firstName" class="form-control" placeholder="John">
+                    <label for="firstName" class="">First name</label>
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-2">
+
+                  <!--lastName-->
+                  <div class="md-form">
+                    <input type="text" name="lname" id="lastName" class="form-control" placeholder="Doe">
+                    <label for="lastName" class="">Last name</label>
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+              
+
+              <!--email-->
+              <div class="md-form mb-5">
+                <input type="text" name="email" id="email" class="form-control" placeholder="youremail@example.com">
+                <label for="email" class="">Email </label>
+              </div>
+
+              <!--address-->
+              <div class="md-form mb-5">
+                <input type="text" name="address" id="address" class="form-control" placeholder="1234 Main St">
+                <label for="address" class="">Shipping Address</label>
+              </div>
+
+              <div class="md-form mb-5">
+                <input type="text" name="phoneno" id="phoneno" class="form-control" placeholder="0123456789"
+                <label for="phoneno" class="">Phone no</label>
+              </div>
+
+
+            
+              {% if flag %}
+              <class="mb-4">
+                  <button class="btn btn-primary btn-lg btn-block" type="submit">Place Order</button>
+                  {% else %}
+                  <class="mb-4">
+                    <button disabled class="btn btn-danger btn-lg btn-block" type="submit">Insufficient Wallet Balance</button>
+              
+              {% endif%}
+            </form>
+
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+
+          <!-- Heading -->
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Your cart</span>
+            <span class="badge badge-secondary badge-pill">3</span>
+          </h4>
+          <!-- Cart -->
+          <ul class="list-group mb-3 z-depth-1">
+            {% for product in products %}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">{{product.p_name}}</h6>
+                <small class="text-muted">{{product.p_category}}</small>
+              </div>
+              <span class="text-muted">₹{{ product.p_price }}</span>
+            </li>
+            {% endfor %}
+
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total </span>
+              <strong>₹{{ total_price }}</strong>
+            </li>
+          </ul>
+          
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+
+
+{% endblock content %}
