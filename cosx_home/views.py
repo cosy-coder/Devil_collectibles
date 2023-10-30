@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import Products, Cart, Wallet, Orders, Rating, Wishlist
 from django.db.models import Q
-
+import random
 from django.contrib.auth.decorators import login_required
 
 
