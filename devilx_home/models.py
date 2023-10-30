@@ -10,12 +10,15 @@ from django.db.models.signals import post_save
 class Products(models.Model):
     p_name = models.CharField(max_length=100)
     p_rating = models.DecimalField(max_digits=5, decimal_places=1)
-    p_description = models.CharField(max_length=500)
+    p_description = models.TextField(max_length=500)
     p_buycount = models.IntegerField()
-    p_brand = models.CharField(max_length=100)
+    p_brand = models.CharField(max_length=100, blank=True)
     p_category = models.CharField(max_length=100)
     p_image = models.ImageField(upload_to="static/images/")
     p_price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    def __str__(self):
+        return self.p_name
 
 
 class Orders(models.Model):
