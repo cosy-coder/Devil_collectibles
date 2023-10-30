@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'cosx_home',
+    'devilx_home',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
