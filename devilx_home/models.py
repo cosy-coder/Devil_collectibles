@@ -24,7 +24,7 @@ class Products(models.Model):
 class Orders(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Products, on_delete=models.CASCADE)
-    order_date = models.DateTimeField(default=timezone.now())
+    order_date = models.DateTimeField(default=timezone.now)
     phoneNum = models.CharField(max_length=15, default="+911234567890")
     email = models.EmailField(max_length=50, default="johndoe@email.com")
     price = models.DecimalField(max_digits=7, decimal_places=2)
@@ -44,7 +44,7 @@ class Wishlist(models.Model):
 
 
 class Wallet(models.Model):
-    user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     wallet = models.DecimalField(
         max_digits=7, decimal_places=2, default=10000.00)
 
