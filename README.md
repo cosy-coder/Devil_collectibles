@@ -1,4 +1,4 @@
-# cosX
+# Devil_Collectibles
 
 Exclusive One piece Painting collections.
 
