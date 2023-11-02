@@ -46,7 +46,7 @@ class Wishlist(models.Model):
 class Wallet(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     wallet = models.DecimalField(
-        max_digits=7, decimal_places=2, default=10000.00)
+        max_digits=10, decimal_places=2, default=1000000.00)
 
 
 class Rating(models.Model):

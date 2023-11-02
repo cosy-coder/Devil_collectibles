@@ -5,7 +5,7 @@
     <div class="container wow fadeIn">
 
       <!-- Heading -->
-      <h2 class="my-5 h2">Checkout form</h2>
+      <h2 class="my-5 h2">Checkout </h2>
 
       <!--Grid row-->
       <div class="row">
@@ -27,7 +27,7 @@
 
                   <!--firstName-->
                   <div class="md-form ">
-                    <input type="text" name="fname" id="firstName" class="form-control" placeholder="John">
+                    <input type="text" name="fname" id="firstName" class="form-control"  value = '{{ user.first_name }}'>
                     <label for="firstName" class="">First name</label>
                   </div>
 
@@ -39,7 +39,7 @@
 
                   <!--lastName-->
                   <div class="md-form">
-                    <input type="text" name="lname" id="lastName" class="form-control" placeholder="Doe">
+                    <input type="text" name="lname" id="lastName" class="form-control" value = '{{user.last_name}}'>
                     <label for="lastName" class="">Last name</label>
                   </div>
 
@@ -53,7 +53,7 @@
 
               <!--email-->
               <div class="md-form mb-5">
-                <input type="text" name="email" id="email" class="form-control" placeholder="youremail@example.com">
+                <input type="text" name="email" id="email" class="form-control" value = '{{user.email}}'>
                 <label for="email" class="">Email </label>
               </div>
 
