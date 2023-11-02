@@ -1,5 +1,67 @@
 {% extends 'devilx_home/base.html' %} {% load static %} {% block content %}
 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap 4 Carousel Example</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ul>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static  'images/greatdiwali.png' %}" alt="Image 1" style=" aspect-ratio: 2/1;  width: 100% ;">
+                <div class="carousel-caption">
+                  
+                </div>
+            </div>
+            <div class="carousel-item">
+              <a href=""></a>
+                <img src="{% static 'images/sale.gif' %}" alt="Image 2" style=" aspect-ratio: 2/1;  width: 100%">
+                <div class="carousel-caption">
+                    
+                </div>
+            </div>
+            <div class="carousel-item">
+              <a href="{% url 'devilx-products' %}">                <img img  src="{% static 'images/newarrival.png' %}" alt="Image 3" style=" aspect-ratio: 2/1;  width: 100%;">
+              </a>
+                <div class="carousel-caption">
+                  
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+<!-- Include Bootstrap and jQuery JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
 <div class="container col-xxl-8 px-4 py-5">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
