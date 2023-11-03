@@ -1,5 +1,24 @@
 {% extends 'devilx_home/base.html' %} {% load static %} {% block content %}
 
+<style>
+  .card-hover {
+    transition: transform 0.5s;
+  }
+
+  .card-hover:hover {
+    transform: scale(1.5); /* Increase size on hover */
+  }
+
+  .zoom-anim {
+  transition: transform 0.2s;
+}
+
+.zoom-anim:hover {
+  transform: scale(1.1); /* Increase the size by 10% on hover */
+}
+
+</style>
+
 <div class="d-flex justify-content-around w-100">
   <div class="p-2" style="position: sticky">
     <p class="display-6">filters</p>
@@ -59,8 +78,8 @@
       <div class="d-flex flex-row flex-wrap justify-content-start">
         {% for product in products %}
 
-        <div class="card m-2 card-anim" style="width: 18rem">
-          <div class="card-body text-center zoom-anim">
+        <div class="card m-2 card-anim card-hover zoom-anim" style="width: 20rem">
+          <div class="card-body text-center card-hover zoom-anim">
             <a href="{{product.id}}" class="text-decoration-none text-dark">
               <img
                 class="card-img-top p-3"
