@@ -2,7 +2,7 @@
   <head>
     <style>
             body{
-                background-color:#f572f5;
+                background-color:#728af5;
                 font-family: "Poppins", sans-serif;
                 font-weight: 300;
                }
@@ -76,7 +76,7 @@
       crossorigin="anonymous"
     />
   </head>
-  <body style="background: #ff00ff; margin: 0; font-family: Roboto">
+  <body style="background-color:bisque; margin: 0; font-family: Roboto">
     <div class="px-5 bg-dark w-100 mb-0 sticky-top">
       <header
         class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom"
@@ -162,18 +162,22 @@
         justify-content: space-around;
       "
     >
-      <div
-        style="
-          border-radius: 10px;
-          width: 100%;
-          background: #b0f0f7;
-          padding: 0px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-around;
-        "
-      >
+    <div
+    style="
+      background-image: url('static/images/final.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      border-radius: 10px;
+      width: 100%;
+      padding: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    "
+  >
+  
         {% block content %} {% endblock %}
       </div>
     </div>
