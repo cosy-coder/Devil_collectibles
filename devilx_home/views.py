@@ -188,6 +188,8 @@ def cart_add(request, pk):
     return redirect('/cart')
 
 
+
+
 def checkout(request, pk):
 
     product = Products.objects.get(id=pk)
@@ -214,7 +216,7 @@ def checkout(request, pk):
         wallet = Wallet.objects.filter(user=request.user)[0]
         wallet.wallet -= total_price
         wallet.save()
-        Cart.objects.filter(user=request.user).delete()
+        # Cart.objects.filter(user=request.user).delete()
 
         return redirect('success')
 
